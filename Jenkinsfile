@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Restore dependencies') {
+            steps {
+                sh 'dotnet restore'
+            }
+        }
         stage('Build Project') {
             steps {
                 sh 'dotnet build'
